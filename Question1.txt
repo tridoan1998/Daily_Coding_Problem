@@ -1,0 +1,43 @@
+INCLUDE Irvine32.inc
+
+.data
+Var1 DWORD 56942145h; reversing means should become 45219456h
+Var2 DWORD?
+
+.code
+main proc
+
+    mov ebx, Var1
+    mov Var2, ebx 
+
+    push edx
+    pop edx
+    Call CRLF
+    Call CRLF
+
+    mov ecx, SIZEOF Var2 
+    mov  esi,0
+
+L1: movzx  eax, Var2[esi]    ; get character
+    push eax                ; push on stack
+    inc  esi
+    loop L1
+
+    ; Pop the name from the stack in reverse
+    ; and store it in the aName array.
+
+    mov ecx, SIZEOF Var2 
+    mov  esi,0
+
+L2: pop  eax                ; get character
+    mov  Var2[esi],al      ; store in string
+    inc  esi
+    loop L2
+
+
+    mov EDX ,OFFSET Var2
+    call WriteString         ; Write the reversed string that is now in buffer
+
+    exit
+main ENDP
+END
