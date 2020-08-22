@@ -42,11 +42,7 @@ public class driver {
 					return null;
 				}
 			}
-			
-			if(newlist.size() < 7)
-			{
-
-			}
+		
 			return newlist;
 		}
 	}
