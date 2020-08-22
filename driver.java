@@ -31,7 +31,21 @@ public class driver {
 			{
 
 				newlist.add(list.get(i));
-				//list.remove(i);
+			}
+			
+			for(int i = 0; i < 7; i++)
+			{
+				list.remove(0);
+				if(list.size() == 0)
+				{
+					System.out.println("here");
+					return null;
+				}
+			}
+			
+			if(newlist.size() < 7)
+			{
+
 			}
 			return newlist;
 		}
@@ -59,6 +73,10 @@ public class driver {
 			}
 			System.out.println(list);
 			System.out.println(d.readN(7, list));
+
+
+			System.out.println(d.readN(7, list));
+
 
 	
 		}catch(FileNotFoundException e )
